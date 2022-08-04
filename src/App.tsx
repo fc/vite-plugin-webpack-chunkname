@@ -1,11 +1,13 @@
 import { useState, lazy } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import lodash from 'lodash';
 
 const Sometools = lazy(() => import(/* webpackChunkName: "some-tools" */ "@namespace/some-tools"));
 
 function App() {
   const [count, setCount] = useState(0)
+  if (lodash.isNil(count)) return null;
   return (
     <div className="App">
       <Sometools />
